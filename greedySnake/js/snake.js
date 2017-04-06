@@ -1,5 +1,6 @@
 function Snake(scale) {
     this.scale = scale;
+    this.size = 1;
     this.x = 0;
     this.y = 0;
     this.speedX = 1;
@@ -33,5 +34,13 @@ function Snake(scale) {
 	}
 	context.fillStyle = 'grey';
 	context.fillRect(this.x, this.y, 10, 10);
+    };
+    this.redirect = function(a,b) {	
+	if((this.speedX*a === -1 || this.speedY*b === -1) ) {
+	//prevent the snake goes backward when its size is larger than 1
+	return;
+	}
+	this.speedX = a;
+	this.speedY = b;
     };
 }
