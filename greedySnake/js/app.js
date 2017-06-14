@@ -1,14 +1,15 @@
-var canvas = $('#myCanvas')[0];
+var canvas = $('#myCanvas')[0];  
 var grey = 'rgb(200,200,220)';
 var context = canvas.getContext('2d');
-var snake = new Snake(10);
+var snake = new Snake(10, canvas);
+var food = new Food(10);
 var interval = 100;
 
 canvas.style.backgroundColor = grey;
-
+food.create(canvas);
 
 setInterval(function() {
-    snake.update(canvas);
+    snake.update();
 }, interval);
 
 $(document).keydown(function(e){
