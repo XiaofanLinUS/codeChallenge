@@ -8,9 +8,26 @@ var interval = 100;
 canvas.style.backgroundColor = grey;
 food.create(canvas);
 
+var check = function() {
+    if(snake.x === food.x && snake.y === food.y) {
+	food.create(canvas);
+	snake.stretch();
+    }
+}
 setInterval(function() {
     snake.update();
+    check();
 }, interval);
+
+
+
+
+
+
+
+
+
+
 
 $(document).keydown(function(e){
     if(e.keyCode === 37) {
@@ -24,3 +41,4 @@ $(document).keydown(function(e){
     }
     e.preventDefault();
 });
+

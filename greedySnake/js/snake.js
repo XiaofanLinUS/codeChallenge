@@ -30,7 +30,7 @@ function Snake(scale, canvas) {
 	}
 	else
 	if(afterY < 0) {
-	    this.y = afterY +  maxY;
+	    this.y = afterY +  this.maxY;
 	}else {
 	    this.x = afterX;
 	    this.y = afterY;
@@ -45,5 +45,8 @@ function Snake(scale, canvas) {
 	}
 	this.speedX = a;
 	this.speedY = b;
+    };
+    this.stretch = function() {
+
     };
 }
