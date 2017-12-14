@@ -4,9 +4,9 @@ function Snake(scale, canvas) {
     this.canvas = canvas;
     this.maxX = this.canvas.width;
     this.maxY = this.canvas.height;
-    this.amountX = this.maxX / scale;
-    this.amountY = this.maxY / scale;
-    this.x = Math.floor((Math.random()*this.amountX))*this.scale;
+    this.amountX = this.maxX / scale; //The total amount of coordinate points on x-axis: n
+    this.amountY = this.maxY / scale; //Like above
+    this.x = Math.floor((Math.random()*this.amountX))*this.scale; // (0, n-1)
     this.y = Math.floor((Math.random()*this.amountY))*this.scale;
     this.speedX = 1;
     this.speedY = 0;
@@ -19,13 +19,13 @@ function Snake(scale, canvas) {
 	context.fillRect(this.x, this.y, this.scale, this.scale);
 	
 	//Boundary Conditions Check & Reset
-	if(afterX > this.maxX) {
+	if(afterX >= this.maxX) {
 	    this.x = afterX - this.maxX;
 	}else
 	if(afterX < 0) {
 	    this.x = afterX + this.maxX;
 	}else
-	if(afterY > this.maxY) {
+	if(afterY >= this.maxY) {
 	    this.y = afterY -  this.maxY;
 	}
 	else
