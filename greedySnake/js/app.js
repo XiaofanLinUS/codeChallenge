@@ -13,10 +13,17 @@ var check = function() {
 	food.create(canvas);
 	snake.stretch();
     }
+    if(!snake.isAlive()) {
+	clearInterval(running);
+	$('#hello').text("game over");
+    }
 }
-setInterval(function() {
-    snake.update();
+
+var running = setInterval(function() {
     check();
+    snake.update();
+    console.log("Size: " + snake.size)
+
 }, interval);
 
 

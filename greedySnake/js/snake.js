@@ -66,7 +66,15 @@ function Snake(scale, canvas) {
 	
 };
 
-
+    this.isAlive = function() {
+	for(var i = 0; i < this.size - 1; i++) {
+	    if(this.x == this.Xs[i] && this.y == this.Ys[i]) {
+		return false;
+	    }
+	}
+	return true;
+    };
+    
     this.redirect = function(a,b) {	
 	if((this.speedX*a === -1 || this.speedY*b === -1)&& this.size > 1) {
 	//prevent the snake goes backward when its size is larger than 1
